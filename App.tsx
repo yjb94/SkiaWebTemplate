@@ -1,6 +1,12 @@
 import { LoadSkiaWeb } from "@shopify/react-native-skia/lib/module/web";
 import { useEffect, useState } from "react";
-import { Platform, Text } from "react-native";
+import {
+  ActivityIndicator,
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { Main } from "./src/Main";
 
 export default function App() {
@@ -19,8 +25,27 @@ export default function App() {
   }, []);
 
   if (!loaded) {
-    return <Text>Loading Skia...</Text>;
+    return (
+      <View style={styles.container}>
+        <Text style={styles.text}>Loading Skia...</Text>
+        <ActivityIndicator style={styles.indicator} />
+      </View>
+    );
   }
 
   return <Main />;
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  text: {
+    fontSize: 20,
+  },
+  indicator: {
+    marginTop: 20,
+  },
+});

@@ -1,8 +1,11 @@
-import { useState } from "react";
-import { Text } from "react-native";
+import { SafeAreaView, Text } from "react-native";
 
 const Main = () => {
-  return <Text>main</Text>;
+  return (
+    <SafeAreaView>
+      <Text>Hello world</Text>
+    </SafeAreaView>
+  );
 };
 
 export { Main };
